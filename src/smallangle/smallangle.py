@@ -5,6 +5,7 @@ import pandas as pd
 
 @click.group()
 def smallangle():
+    """Generate values for sine or tangent between 0 and 2π."""
     pass
 
 @smallangle.command()
@@ -16,6 +17,11 @@ def smallangle():
     show_default=True,
     type=int)
 def sin(number):
+    """Calculate the sine of values between 0 and 2π.
+
+    Args:
+        number (int): Number of steps between 0 and 2π
+    """    
     x = np.linspace(0, 2 * pi, number)
     df = pd.DataFrame({"x": x, "sin (x)": np.sin(x)})
     print(df)
@@ -29,6 +35,11 @@ def sin(number):
     show_default=True,
     type=int)
 def tan(number):
+    """Calculate the tangent of values between 0 and 2π.
+
+    Args:
+        number (int): Number of steps between 0 and 2π
+    """    
     x = np.linspace(0, 2 * pi, number)
     df = pd.DataFrame({"x": x, "tan (x)": np.tan(x)})
     print(df)
